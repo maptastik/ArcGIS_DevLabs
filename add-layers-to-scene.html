@@ -1,0 +1,60 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>ArcGIS DevLabs: Add layers to a 3D Scene</title>
+    <style>
+        html,
+        body,
+        #viewDiv {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://js.arcgis.com/4.8/esri/css/main.css">
+    <script src="https://js.arcgis.com/4.8/"></script>
+
+    <script>  
+        require([
+            "esri/Map",
+            "esri/views/SceneView",
+            "esri/layers/FeatureLayer",
+            "dojo/domReady!"
+        ], function (Map, SceneView, FeatureLayer) {
+
+            var map = new Map({
+                basemap: "topo-vector"
+            });
+
+            var featureLayer = new FeatureLayer({
+                url: "https://services3.arcgis.com/GVgbJbqm8hXASVYi/arcgis/rest/services/Trailheads/FeatureServer"
+            });
+
+            map.add(featureLayer);
+
+            var view = new SceneView({
+                container: "viewDiv",
+                map: map
+            });
+
+            view.when(function() {
+                view.goTo({
+                    center: [-118.71511,34.09042],
+                    zoom: 11,
+                    tilt: 70
+                })
+            })
+
+        });
+    </script>
+</head>
+
+<body>
+    <div id="viewDiv"></div>
+</body>
+
+</html>
