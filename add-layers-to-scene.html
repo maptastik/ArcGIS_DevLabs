@@ -31,7 +31,7 @@
             });
 
             var featureLayer = new FeatureLayer({
-                url: "https://services3.arcgis.com/GVgbJbqm8hXASVYi/arcgis/rest/services/Trailheads/FeatureServer"
+                url: "https://services.arcgis.com/v400IkDOw1ad7Yad/arcgis/rest/services/Parks/FeatureServer"
             });
 
             map.add(featureLayer);
@@ -43,9 +43,9 @@
 
             view.when(function() {
                 view.goTo({
-                    center: [-118.71511,34.09042],
-                    zoom: 11,
-                    tilt: 70
+                    center: [-78.638176, 35.779591],
+                    zoom: 13,
+                    tilt: 30
                 })
             })
 
